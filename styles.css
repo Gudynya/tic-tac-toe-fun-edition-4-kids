@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffeb3b; /* Bright yellow background */
+    margin: 0;
+    font-family: 'Comic Sans MS', sans-serif;
+    color: #333;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 310px;
+    height: 310px;
+    background-color: #ff9800; /* Orange background for the board */
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid #ff5722;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.cell:hover {
+    background-color: #ffe0b2;
+    transform: scale(1.05);
+}
+
+.board .x, .board .circle {
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.board .x {
+    color: #e91e63; /* Vibrant pink color for X */
+    text-shadow: 0 0 10px #e91e63;
+}
+
+.board .circle {
+    color: #3f51b5; /* Bright blue color for O */
+    text-shadow: 0 0 10px #3f51b5;
+}
+
+.winning-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.winning-message.show {
+    display: flex;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#winning-message-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
